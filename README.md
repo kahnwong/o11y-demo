@@ -1,9 +1,20 @@
 # o11y-demo
 
+## Pre-reqs
+
+Install Beyla
+
+```bash
+curl -LO https://github.com/grafana/beyla/releases/download/v2.8.4/beyla-linux-amd64-v2.8.4.tar.gz
+tar xzf beyla-linux-amd64-v2.8.4.tar.gz
+sudo mv beyla /usr/local/bin/
+```
+
 ## Usage
 
 ```bash
 make start-lgtm  # http://localhost:8080 - admin:admin
+make start-beyla
 make start # http://localhost:3000
 ```
 
