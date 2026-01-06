@@ -9,9 +9,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
-	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
-	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetrichttp"
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
+	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploggrpc"
+	"go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
 	otellog "go.opentelemetry.io/otel/log"
 	"go.opentelemetry.io/otel/log/global"
 	"go.opentelemetry.io/otel/metric"
@@ -67,7 +67,7 @@ func initOTEL(ctx context.Context) shutdownFunc {
 	)
 
 	// Trace
-	traceExporter, err := otlptracehttp.New(ctx)
+	traceExporter, err := otlptracegrpc.New(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -79,7 +79,7 @@ func initOTEL(ctx context.Context) shutdownFunc {
 	otel.SetTracerProvider(tp)
 
 	// Metrics
-	metricExporter, err := otlpmetrichttp.New(ctx)
+	metricExporter, err := otlpmetricgrpc.New(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -90,7 +90,7 @@ func initOTEL(ctx context.Context) shutdownFunc {
 	otel.SetMeterProvider(mp)
 
 	// Logs
-	logExporter, err := otlploghttp.New(ctx)
+	logExporter, err := otlploggrpc.New(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
