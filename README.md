@@ -13,16 +13,17 @@ sudo mv beyla /usr/local/bin/
 ## Usage
 
 ```bash
-make start-lgtm  # http://localhost:8080 - admin:admin
+make start-lgtm  # http://localhost:3000 - admin:admin
 make start-beyla
-make start # http://localhost:3000
+make start # http://localhost:8080
 ```
 
 ## Notes
 
 - See `logs` under `loki`
-- See `traces` under `tempo`
 - See `metrics` under `prometheus` and select metric name
+- See `traces` under `tempo`
+- See supported Go frameworks: <https://github.com/grafana/beyla>
 
 ## Refs
 

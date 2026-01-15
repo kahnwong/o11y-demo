@@ -5,4 +5,4 @@ start-lgtm:
 start-beyla:
 	sudo beyla --config beyla-config.yaml
 test:
-	hurl hurl/users.hurl
+	hurl hurl/foo.hurl
